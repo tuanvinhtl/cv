@@ -158,12 +158,13 @@
     <section id="professional-summary">
       <h2>Professional Summary</h2>
       <p>
-        Innovative Senior Frontend Developer with 8+ years of experience in
-        building scalable web applications. Specialized in Angular, Vue.js, and
-        emerging technologies like blockchain. Proven track record of delivering
-        high-impact projects in fintech, e-commerce, and real estate sectors.
-        Adept at leading teams and implementing microservices architecture to
-        enhance application performance and maintainability.
+        Innovative Senior Full Stack Developer with 8+ years of experience
+        building scalable web applications across maritime SaaS, fintech,
+        e-commerce, and blockchain. Currently leading the Ember.js to React 19
+        migration for OpsWiz, a maritime operations platform. Experienced with
+        modern React ecosystems (TanStack Query, Zustand, React Router), AI-augmented
+        development workflows (Claude Code Agents, Cursor Agent), and
+        quantitative side projects combining Python, FastAPI, and LLM integration.
       </p>
     </section>
 
@@ -171,14 +172,31 @@
       <h2>Core Technical Skills</h2>
       <ul>
         <li>
-          Frontend: Angular, Vue.js, React, Ember.js, HTML5, CSS3, JavaScript,
-          TypeScript, Tailwind CSS
+          Frontend: React 19, TypeScript, Vite, TanStack Query/Table, Zustand,
+          React Router, Radix UI, Angular, Vue.js, Ember.js, Tailwind CSS
         </li>
-        <li>Backend: Node.js, PHP (Laravel, Magento 2), .NET</li>
+        <li>
+          Backend & Data: Node.js, Python (FastAPI, pandas), PHP (Laravel,
+          Magento 2), .NET, SQLite, CCXT
+        </li>
+        <li>
+          Realtime & Maps: SocketCluster, WebSocket, Leaflet, Recharts,
+          TradingView Lightweight Charts
+        </li>
+        <li>
+          AI & Agents: Claude Code Agents, Cursor Agent, LLM Integration
+          (OpenAI, Gemini), MCP, Agent API
+        </li>
         <li>Mobile: Flutter, Ionic</li>
-        <li>Cloud & DevOps: AWS, Docker, Kubernetes, Firebase</li>
-        <li>Other: Blockchain (Cardano), WebSocket, UI/UX Design</li>
-        <li>Vendor Integration: Particle, Twilio, Langtech</li>
+        <li>
+          Cloud & DevOps: AWS (S3, API Gateway), Docker, Kubernetes, Firebase,
+          Bitbucket CI/CD, GitHub Actions, Sentry
+        </li>
+        <li>
+          Other: Blockchain (Cardano), Algorithmic Trading, Quantitative
+          Analysis, UI/UX Design
+        </li>
+        <li>Vendor Integration: Particle, Twilio, Langtech, Binance API</li>
       </ul>
     </section>
 
@@ -190,23 +208,43 @@
           Senior Full Stack Engineer | Fetch Technology, Đà Nẵng | Jan 2023 -
           Present
         </h3>
+        <p>
+          Leading frontend migration of
+          <a href="https://opswiz.io">OpsWiz</a>, a maritime SaaS platform for
+          tanker operations (Commercial, Operations, Finance, Claims), from
+          Ember.js to React 19 + TypeScript.
+        </p>
         <ul>
           <li>
-            Spearheaded development of
-            <a href="https://opswiz.io">opswiz.io</a>, a comprehensive vessel
-            tracking and package management solution.
+            Migrated OpsWiz maritime SaaS frontend from Ember.js to React 19 +
+            TypeScript, delivering 1,275+ source files across Commercial,
+            Operations, Finance, Claims, Dashboard BI, Database, and Admin
+            modules
           </li>
           <li>
-            Implemented microservices architecture, resulting in enhanced
-            maintainability and rapid feature delivery.
+            Architected modern stack with Vite 7, TanStack Query/Table, Zustand,
+            React Router 7, and Radix/shadcn UI — replacing Ember Data/services
+            with ~35 typed API modules and domain query layers
           </li>
           <li>
-            Reduced legacy system performance issues, leading to significant
-            cost savings.
+            Ported 158 RBAC permission strings from legacy ember-can into a
+            centralized TypeScript permission system with route guards and
+            component-level access control
           </li>
           <li>
-            Mastered EmberJS and Laravel, expanding the team's technological
-            capabilities.
+            Integrated REST API (v1/v2), SocketCluster realtime, 2FA/OTP auth,
+            and AWS export services; automated CI/CD via Bitbucket Pipelines
+            deploying static builds to S3 (QA/Staging/Production)
+          </li>
+          <li>
+            Built complex domain features: Leaflet vessel/port mapping,
+            Luckysheet Excel workflows, TipTap rich-text editors, Recharts BI
+            dashboards, and vis-timeline scheduling views
+          </li>
+          <li>
+            Implemented production-grade deploy safety: Sentry error tracking
+            (profiling + session replay), lazy route chunking with auto-retry
+            on stale deployments, and client-side version polling
           </li>
         </ul>
       </article>
@@ -429,14 +467,60 @@
       </article>
 
       <article>
-        <h3>Freelancer and Others (Updating...)</h3>
+        <h3>
+          Side Projects & Freelance | Crypto Trading Bot (Personal) | 2024 -
+          Present
+        </h3>
+        <p>
+          End-to-end algorithmic crypto trading system with AI-augmented
+          operations, Dockerized FastAPI + React 19 monitoring portal, and
+          rigorous quant validation pipeline.
+        </p>
+        <ul>
+          <li>
+            Built end-to-end crypto trading system (Python/CCXT) with 16
+            quantitative strategies, 16-pair portfolio, and shared
+            backtest/live signal pipeline — backed by 1,776 automated pytest
+            cases
+          </li>
+          <li>
+            Designed AI-augmented operations: daily/weekly LLM digests
+            (OpenAI/Gemini), 12+ Claude Code subagents for strategy
+            research/validation, and Hermes agent API with doctrine-aware
+            recommendation review console
+          </li>
+          <li>
+            Shipped Dockerized FastAPI + React 19 monitoring portal with
+            real-time Binance WebSocket charts, shadow strategy rack (9
+            parallel forward-tests), and SQL MCP bridge for agent analytics
+          </li>
+          <li>
+            Implemented rigorous quant methodology: walk-forward anti-overfit
+            gates, bootstrap CI, 9 shadow strategies, promotion-watch
+            automation, and 14-check preflight composite before real-money flip
+          </li>
+          <li>
+            Deployed production stack on VPS via GitHub Actions + Docker Compose
+            with 25 systemd cron jobs covering sentiment ingest, macro alerts,
+            reconciliation, backup, and AI analysis pipelines
+          </li>
+          <li>
+            Integrated multi-source market intelligence (perp funding, Fear &amp;
+            Greed, FRED macro, whale flows) into SQLite analytics for event-study
+            research and portal observability dashboards
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Freelancer and Others</h3>
         <ul>
           <li>
             <a href="https://workforce-9c726.web.app">Shift Management</a>
           </li>
           <li>
             <a href="https://vue-video-editor.web.app/video/42"
-              >Video Transcipt Editor</a
+              >Video Transcript Editor</a
             >
           </li>
           <li>
