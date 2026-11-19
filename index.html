@@ -176,8 +176,8 @@
           React Router, Radix UI, Angular, Vue.js, Ember.js, Tailwind CSS
         </li>
         <li>
-          Backend & Data: Node.js, Python (FastAPI, pandas), PHP (Laravel,
-          Magento 2), .NET, SQLite, CCXT
+          Backend & Data: Node.js (Express), PostgreSQL, Knex, Python (FastAPI,
+          pandas), PHP (Laravel, Magento 2), .NET, SQLite, CCXT
         </li>
         <li>
           Realtime & Maps: SocketCluster, WebSocket, Leaflet, Recharts,
@@ -189,7 +189,7 @@
         </li>
         <li>Mobile: Flutter, Ionic</li>
         <li>
-          Cloud & DevOps: AWS (S3, API Gateway), Docker, Kubernetes, Firebase,
+          Cloud & DevOps: AWS (Lambda, RDS, S3, API Gateway), Docker, Kubernetes, Firebase,
           Bitbucket CI/CD, GitHub Actions, Sentry
         </li>
         <li>
@@ -245,6 +245,46 @@
             Implemented production-grade deploy safety: Sentry error tracking
             (profiling + session replay), lazy route chunking with auto-retry
             on stale deployments, and client-side version polling
+          </li>
+        </ul>
+        <p>
+          <strong>OpsWiz Export Hub (Node.js backend)</strong> — built and own
+          the serverless export service behind OpsWiz's in-browser Excel
+          editor.
+        </p>
+        <ul>
+          <li>
+            Built a Node.js 22 / Express 5 service on AWS Lambda (API Gateway,
+            serverless-http) that converts Luckysheet spreadsheet JSON into
+            XLSX, PDF, CSV, ODS, PNG, and HTML for the React frontend
+          </li>
+          <li>
+            Designed a LibreOffice-based render pipeline (soffice + pdftoppm in
+            custom Lambda Docker images with bundled fonts) so every format is
+            rendered from the same workbook. This gave correct pagination and
+            page setup, Vietnamese text in PDFs, and UTF-8 CSV output
+          </li>
+          <li>
+            Implemented versioned worksheet/template storage on RDS PostgreSQL
+            16 with Knex migrations: append-only versions, template cloning,
+            and EJS admin viewers
+          </li>
+          <li>
+            Built "Proof Bench", a live print-preview tool. It renders as the
+            user edits, with debouncing and cancellation that discards stale
+            results, draws page breaks in the browser without a server render,
+            and lets users flip between versions to compare them
+          </li>
+          <li>
+            Set up Bitbucket Pipelines CI/CD with 120+ automated tests (node:test)
+            gating database migrations, Lambda deploys, per-branch database and
+            S3 isolation for Live/QA, automatic QA sync, and Slack
+            notifications
+          </li>
+          <li>
+            Built an internal Postgres MCP server (Model Context Protocol)
+            that locks each process to one environment and is read-only by
+            default, so AI agents can query the database safely
           </li>
         </ul>
       </article>
@@ -474,7 +514,9 @@
         </h3>
         <p>
           End-to-end algorithmic crypto trading system with AI-augmented
-          operations, Dockerized FastAPI + React 19 monitoring portal, and
+          operations, Dockerized FastAPI + React 19
+          <a href="https://vinhfreq-portal.duckdns.org/">monitoring portal</a>,
+          and
           rigorous quant validation pipeline.
         </p>
         <ul>
