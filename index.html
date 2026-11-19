@@ -99,27 +99,65 @@
 
       @media print {
         body {
-          background-color: #fff;
+          background-color: #fff !important;
+          max-width: none;
+          padding: 0;
+          font-size: 10.5pt;
+          line-height: 1.45;
+        }
+
+        header {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          border-radius: 4px !important;
+          margin-bottom: 12px;
+        }
+
+        header h1 {
+          font-size: 2em;
         }
 
         section {
           box-shadow: none;
-          margin-bottom: 15px;
-        }
-
-        header {
-          background-color: #fff;
-          color: #000;
+          border-radius: 0;
+          margin-bottom: 6px;
+          padding: 0 4px;
         }
 
         h2 {
-          color: #000;
+          margin: 10px 0 8px;
+          padding-bottom: 4px;
+          break-after: avoid;
         }
-        /* 
-        a {
-          color: #000;
-          text-decoration: none;
-        } */
+
+        h3 {
+          margin: 12px 0 4px;
+          break-after: avoid;
+        }
+
+        p {
+          margin: 4px 0;
+        }
+
+        li {
+          margin-bottom: 2px;
+          break-inside: avoid;
+        }
+
+        #core-skills li {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          padding: 3px 8px;
+          margin-bottom: 3px;
+        }
+
+        #professional-experience article {
+          margin-bottom: 8px;
+        }
+
+        .no-print {
+          display: none;
+        }
       }
 
       @media (max-width: 600px) {
@@ -145,13 +183,15 @@
       <p>
         <a href="https://github.com/tuanvinhtl">GitHub</a> |
         <a href="https://www.linkedin.com/in/tuan-vinh-0b5979130/">LinkedIn</a>
-        |
-        <a
-          onclick="gtag('send', 'event', 'click_event', 'download_event');"
-          id="convertButton"
-          href="javascript:void(0)"
-          >Download</a
-        >
+        <span class="no-print">
+          |
+          <a
+            onclick="gtag('event', 'download_cv');"
+            href="cv.pdf"
+            download="nguyen-tuan-vinh-cv.pdf"
+            >Download PDF</a
+          >
+        </span>
       </p>
     </header>
 
@@ -599,73 +639,5 @@
       <p>Team sports, Football, Music, Science fiction</p>
     </section>
 
-    <script>
-      document
-        .getElementById("convertButton")
-        .addEventListener("click", async () => {
-          const currentDate = new Date()
-            .toISOString()
-            .slice(0, 19)
-            .replace(/[-:]/g, ""); // Generate current datetime string
-          const fileName = `nguyen-tuan-vinh-${currentDate}.pdf`; // Dynamic file name with datetime
-          const filePath = "index.html";
-          const base64Html = await readFileSyncAsBase64(filePath); // Replace with your actual Base64 encoded file content
-
-          try {
-            const response = await fetch(
-              "https://cv-gennerate.onrender.com/generate-pdf",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ base64Html }),
-              }
-            );
-            if (!response.ok) {
-              throw new Error(
-                "Network response was not ok " + response.statusText
-              );
-            }
-
-            console.log("Conversion successful:", response);
-
-            // Do something with the response data, e.g., display the PDF link
-            downloadFile(response, fileName);
-          } catch (error) {
-            console.error(
-              "There was a problem with the fetch operation:",
-              error
-            );
-          }
-
-          async function downloadFile(response, fileName) {
-            const a = document.createElement("a");
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-
-            a.href = url;
-            a.setAttribute("download", fileName);
-            a.click();
-          }
-
-          async function readFileSyncAsBase64(filePath) {
-            const response = await fetch(filePath);
-            if (!response.ok) {
-              throw new Error(
-                `Failed to fetch file ${filePath}: ${response.status} ${response.statusText}`
-              );
-            }
-
-            const blob = await response.blob();
-            return new Promise((resolve, reject) => {
-              const reader = new FileReader();
-              reader.onload = () => resolve(reader.result.split(",")[1]);
-              reader.onerror = (error) => reject(error);
-              reader.readAsDataURL(blob);
-            });
-          }
-        });
-    </script>
   </body>
 </html>
